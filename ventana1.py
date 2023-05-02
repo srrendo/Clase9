@@ -2,8 +2,10 @@ import sys
 
 from PyQt5.QtGui import QPixmap, QFont
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QHBoxLayout, QApplication, QFormLayout, QLineEdit, \
-    QPushButton
-from PyQt5 import QtGui
+    QPushButton, QDialog, QDialogButtonBox, QVBoxLayout
+from PyQt5 import QtGui, QtCore
+from PyQt5.QtCore import Qt
+
 
 class Ventana1(QMainWindow):
 
@@ -18,8 +20,8 @@ class Ventana1(QMainWindow):
         self.setWindowIcon(QtGui.QIcon('imagenes/balon.jpg'))
 
         # Establecer las propiedades de ancho y alto
-        self.ancho = 900
-        self.alto = 600
+        self.ancho = 1200
+        self.alto = 900
 
         # Establecer el tamaño de la ventana
         self.resize(self.ancho, self.alto)
@@ -182,6 +184,171 @@ class Ventana1(QMainWindow):
         # Agregamos el Layout ladoIzquierdo al layout horizontal
         self.horizontal.addLayout(self.ladoIzquierdo)
 
+        # ---------- Layout Derecho -----------
+
+        # Creamos el layout del lado derecho
+        self.ladoDerecho = QFormLayout()
+
+        # Se asigna la margen solo a la izquierda de 100px
+        self.ladoDerecho.setContentsMargins(100, 0, 0, 0)
+
+        # Hacemos el letrero3
+        self.letrero3 = QLabel()
+
+        # Le asignamos el texto
+        self.letrero3.setText("Recuperar contraseña")
+
+        # Le asignamos el tipo de letra
+        self.letrero3.setFont(QFont("Andale Mono", 20))
+
+        # Le ponemos el color de texto
+        self.letrero3.setStyleSheet("color: #ffffff")
+
+        # Agregamos el letrero en la primera fila
+        self.ladoDerecho.addRow(self.letrero3)
+
+        # Hacemos el letrero4
+        self.letrero4 = QLabel()
+
+        # Establecemos el ancho del label
+        self.letrero4.setFixedWidth(400)
+
+        # Le escribimos el texto
+        self.letrero4.setText("Por favor ingrese la información para "
+                              "\nrecuperar la contraseña."
+                              "\nLos campos marcados"
+                              "\ncon asteriscos, son obligatorios")
+
+        # Le asignamos el tipo de letra:
+        self.letrero4.setFont(QFont("Andale Mono", 10))
+
+        # Le ponemos color al texto y margenes
+        self.letrero4.setStyleSheet(("color: #FFFFFF; margin-bottom: 40px;"
+                                    "margin-top: 20px;"
+                                    "padding-bottom: 10px;"
+                                    "border: 2px solid #000000;"
+                                    "border.left: none;"
+                                    "border-right: none;"
+                                    "border-top: none;"))
+
+        # Agregamos el letrero 4 a la fila siguiente.
+        self.ladoDerecho.addRow(self.letrero4)
+
+        # ------ 1
+
+        # Hacemos el letrero de la pregunta 1
+        self.labelPregunta1 = QLabel("Primera pregunta de verificación*")
+
+        # Agregamos el letrero en la fila siguiente.
+        self.ladoDerecho.addRow(self.labelPregunta1)
+
+        # Hacemos el campo para ingresar la pregunta 1
+        self.pregunta1 = QLineEdit()
+        self.pregunta1.setFixedWidth(320)
+
+        # Agregamos el campo en el formulario
+        self.ladoDerecho.addRow(self.pregunta1)
+
+        # Hacemos el letrero en la respuesta 1
+        self.labelRespuesta1 = QLabel("Respuesta de verificación pregunta 1*")
+
+        # Agregamos el letrero en la fila siguiente
+        self.ladoDerecho.addRow(self.labelRespuesta1)
+
+        # Hacemos el campo para ingresar la respuesta 1
+        self.respuesta1 = QLineEdit()
+        self.respuesta1.setFixedWidth(320)
+
+        # Agregamos el campo en el formulario
+        self.ladoDerecho.addRow(self.respuesta1)
+
+        # ------ 2
+
+        # Hacemos el letrero de la pregunta 2
+        self.labelPregunta2 = QLabel("Segunda pregunta de verificación*")
+
+        # Agregamos el letrero en la fila siguiente.
+        self.ladoDerecho.addRow(self.labelPregunta2)
+
+        # Hacemos el campo para ingresar la pregunta 2
+        self.pregunta2 = QLineEdit()
+        self.pregunta2.setFixedWidth(320)
+
+        # Agregamos el campo en el formulario
+        self.ladoDerecho.addRow(self.pregunta2)
+
+        # Hacemos el letrero en la respuesta 2
+        self.labelRespuesta2 = QLabel("Respuesta de verificación pregunta 2*")
+
+        # Agregamos el letrero en la fila siguiente
+        self.ladoDerecho.addRow(self.labelRespuesta2)
+
+        # Hacemos el campo para ingresar la respuesta 2
+        self.respuesta2 = QLineEdit()
+        self.respuesta2.setFixedWidth(320)
+
+        # Agregamos el campo en el formulario
+        self.ladoDerecho.addRow(self.respuesta2)
+
+        # ------ 3
+
+        # Hacemos el letrero de la pregunta 3
+        self.labelPregunta3 = QLabel("Tercer pregunta de verificación*")
+
+        # Agregamos el letrero en la fila siguiente.
+        self.ladoDerecho.addRow(self.labelPregunta3)
+
+        # Hacemos el campo para ingresar la pregunta 3
+        self.pregunta3 = QLineEdit()
+        self.pregunta3.setFixedWidth(320)
+
+        # Agregamos el campo en el formulario
+        self.ladoDerecho.addRow(self.pregunta3)
+
+        # Hacemos el letrero en la respuesta 3
+        self.labelRespuesta3 = QLabel("Respuesta de verificación pregunta 3*")
+
+        # Agregamos el letrero en la fila siguiente
+        self.ladoDerecho.addRow(self.labelRespuesta3)
+
+        # Hacemos el campo para ingresar la respuesta 3
+        self.respuesta3 = QLineEdit()
+        self.respuesta3.setFixedWidth(320)
+
+        # Agregamos el campo en el formulario
+        self.ladoDerecho.addRow(self.respuesta3)
+
+        # Hacemos el botón para buscar las preguntas
+        self.botonBuscar = QPushButton("Buscar")
+
+        # Establecemos el ancho del botón
+        self.botonBuscar.setFixedWidth(90)
+
+        # Le ponemos los estilos al botón
+        self.botonBuscar.setStyleSheet("background-color: #008B45;"
+                                        "color: #FFFFFF;"
+                                        "padding: 10px;"
+                                        "margin-top: 40px;")
+
+        # Hacemos el botón para recuperar la contraseña
+        self.botonRecuperar = QPushButton("Recuperar PW")
+
+        # Establecemos el ancho del botón
+        self.botonRecuperar.setFixedWidth(120)
+
+        # Le ponemos los estilos al botón
+        self.botonRecuperar.setStyleSheet("background-color: #008B45;"
+                                       "color: #FFFFFF;"
+                                       "padding: 10px;"
+                                       "margin-top: 40px;")
+
+        # Agregamos los botones al Layout del lado derecho
+        self.ladoDerecho.addRow(self.botonBuscar, self.botonRecuperar)
+
+
+
+        # Agregamos el layout ladoDerecho al layout horizontal
+        self.horizontal.addLayout(self.ladoDerecho)
 
         # --------- OJO IMPORTANTE PONER AL FINAL --------------
 
@@ -190,11 +357,135 @@ class Ventana1(QMainWindow):
 
     # Metodo del botón limpiar
     def accion_botonLimpiar(self):
-        pass
+        self.nombreCompleto.setText('')
+        self.usuario.setText('')
+        self.contraseña.setText('')
+        self.contraseña2.setText('')
+        self.documento.setText('')
+        self.correo.setText('')
+        self.pregunta1.setText('')
+        self.respuesta1.setText('')
+        self.pregunta2.setText('')
+        self.respuesta2.setText('')
+        self.pregunta3.setText('')
+        self.respuesta3.setText('')
 
     # Metodo del botón Registrar
     def accion_botonRegistrar(self):
-        pass
+
+        # Creamos la ventana de diálogo
+        self.ventanaDialogo = QDialog(None, QtCore.Qt.WindowSystemMenuHint | QtCore.Qt.WindowTitleHint)
+
+        # Definimos el tamaño de la ventana
+        self.ventanaDialogo.resize(300, 150)
+
+        # Creamos el botón para aceptar
+        self.botonAceptar = QDialogButtonBox.Ok
+        self.opciones = QDialogButtonBox(self.botonAceptar)
+        self.opciones.accepted.connect(self.ventanaDialogo.accept)
+
+        # Establecemos el título de ventana
+        self.ventanaDialogo.setWindowTitle("Formulario de registro")
+
+        # Configuración de la ventana para que sea modal
+        self.ventanaDialogo.setWindowModality(Qt.ApplicationModal)
+
+        # Creamos el layout vertical
+        self.vertical = QVBoxLayout()
+
+        # Creamos el label para los mensajes
+        self.mensaje = QLabel("")
+
+        # Le ponemos estilos al label mensaje
+        self.mensaje.setStyleSheet("background-color: #008B45; color: #FFFFFF; padding: 10px;")
+
+        # Agregamos el label de mensajes
+        self.vertical.addWidget(self.mensaje)
+
+        # Agregamos las opciones de los botones
+        self.vertical.addWidget(self.opciones)
+
+        # Establecemos el layout para la ventana
+        self.ventanaDialogo.setLayout(self.vertical)
+
+        # Variable para controlar que se han ingresado los datos correctos
+        self.datosCorrectos = True
+
+        # Validamos que las contraseñas sean iguales
+        if (
+            self.contraseña.text() != self.contraseña2.text()
+        ):
+            self.datosCorrectos = False
+
+            # Escribimos el texto explicativo
+            self.mensaje.setText("Las contraseñas no son iguales")
+
+            # Hacemos que la ventana de diálogo se vea
+            self.ventanaDialogo.exec_()
+
+        # Validamos que se ingresen todos los campos
+        if (
+                self.nombreCompleto.text() == ''
+                or self.usuario.text() == ''
+                or self.contraseña.text() == ''
+                or self.contraseña2.text() == ''
+                or self.documento.text() == ''
+                or self.correo.text() == ''
+                or self.pregunta1.text() == ''
+                or self.respuesta1.text() == ''
+                or self.pregunta2.text() == ''
+                or self.respuesta2.text() == ''
+                or self.pregunta3.text() == ''
+                or self.respuesta3.text() == ''
+        ):
+
+            self.datosCorrectos = False
+
+            # Escribimos el texto explicativo
+            self.mensaje.setText("Debe diligenciar todos los datos")
+
+            # Hacemos que la ventana de diálogo se vea
+            self.ventanaDialogo.exec_()
+
+        if self.datosCorrectos:
+
+            # Abrimos el archivo en modo agregar escribiendo datos en binario
+            self.file = open('datos/clientes.txt', 'ab')
+
+            # Traer el texto de los Qline Edit() y los agrega concatenandolos
+            # Para escribirlos en el archivo en formato binario UTF-8
+            self.file.write(bytes(
+                self.nombreCompleto.text() + ";"
+                + self.usuario.text() + ";"
+                + self.contraseña.text() + ";"
+                + self.contraseña2.text() + ";"
+                + self.documento.text() + ";"
+                + self.correo.text() + ";"
+                + self.pregunta1.text() + ";"
+                + self.respuesta1.text() + ";"
+                + self.pregunta2.text() + ";"
+                + self.respuesta2.text() + ";"
+                + self.pregunta3.text() + ";"
+                + self.respuesta3.text() + "\n"
+                , encoding= 'UTF-8'))
+            # Cerramos el archivo
+            self.file.close()
+
+            # Abrimos en modo lectura en formato Byte
+            self.file = open('datos/clientes.txt', 'rb')
+            # Recorrer el archivo linea por linea
+            while self.file:
+                linea = self.file.readline().decode('UTF-8')
+                print(linea)
+                if linea == '': # Para cuando encuentre una línea vacía
+                    break
+            self.file.close()
+
+
+
+
+
+
 
 if __name__ == '__main__':
 
