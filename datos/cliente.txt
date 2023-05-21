@@ -1,2 +1,5 @@
 Sebastian Ramirez Rendon;srrendo;12345;1040753154;sebas.240796@gmail.com;Padre;Luis;Madre;Gloria;Hermano;Santiago
 Santiago Ramirez;santirr25;12345;1022142349;santirr25@gmail.com.co;Primera letra del nombre;S;Primera letra el apellido;R;Edad;19
+Cristian Ramirez Rendon;crisrr10;9876;1020467427;cristianramirezrendon10@gmail.com;Jugador favorito;Cristiano Ronaldo;Comida Favorita;Frijoles;Nombre primero perro;Enzo
+Luis Ramirez Henao;luisrh14;5678;98572251;ramirez-1401@gmail.com;Nombre Madre;Luz Mila Henao;Equipo favorito en inglaterra;Arsenal;Placa de su carro (Solo las letras);CEP
+Gloria Rendon;glori13;2468;43677682;gloria@gmail.com;Nombre del padre;Rafael Rendon;Deporte favorito;Voleybol;Noombre primero hijo;Estiven

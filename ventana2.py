@@ -186,7 +186,7 @@ class Ventana2(QMainWindow):
                     # Le ponemos los estilos
                     self.botonAccion.setStyleSheet("background-color: #008B45;"
                                                    "color: #FFFFFF;"
-                                                   "pandding: 10px;"
+                                                   "padding: 10px;"
                                                    )
 
                     # Agregamos el botón al layout vertical para que se vea
@@ -210,12 +210,41 @@ class Ventana2(QMainWindow):
         # Establecemos el metodo para que funcionen los botones
         self.botones.idClicked.connect(self.metodo_accionBotones)
 
+        # -------------BOTÓN VOLVER---------------------------
+
+        # Hacemos el botón para volver a la ventana anterior
+        self.botonVolver = QPushButton("Volver")
+
+        # Establecemos el ancho del botón
+        self.botonVolver.setFixedWidth(90)
+
+        # Le ponemos los estilos
+        self.botonVolver.setStyleSheet("background-color: #008B45;"
+                                       "color: #FFFFFF;"
+                                       "padding: 10'px;"
+                                       "margin-top: 10px;"
+                                       )
+
+        # Hacemos que el botón volver tenga su metodo
+        self.botonVolver.clicked.connect(self.metodo_botonVolver)
+
+        # Metemos en el Layout vertical el botón volver
+        self.vertical.addWidget(self.botonVolver)
+
         # --------------- Importante poner al final ---------------
         self.fondo.setLayout(self.vertical)
 
         # Metodo para controlar las acciones de los botones
     def metodo_accionBotones(self, cedulaUsuario):
         print(cedulaUsuario)
+
+    # Metodo para el botón volver
+    def metodo_botonVolver(self):
+        self.hide()
+        self.ventanaAnterior.show()
+
+
+
 
 
 
