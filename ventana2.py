@@ -104,7 +104,7 @@ class Ventana2(QMainWindow):
         # Abrimos el archivo en solo lectura
         self.file = open('datos/cliente.txt', 'rb')
 
-        # Lista vacia para guardar los usaurios
+        # Lista vacía para guardar los usaurios
         self.usuarios = []
 
         # Recorremos el archivo linea por linea
