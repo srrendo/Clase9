@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QHBoxLayout, QA
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import Qt
 from cliente import Cliente
-
+from ventana2 import Ventana2
 
 class Ventana1(QMainWindow):
 
@@ -354,9 +354,34 @@ class Ventana1(QMainWindow):
         # Agregamos los botones al Layout del lado derecho
         self.ladoDerecho.addRow(self.botonBuscar, self.botonRecuperar)
 
+        # ------- BOTÓN CONTINUAR -----------
+
+        # Hacemos el botón para pasar a la siguiente ventana:
+        self.botonContinuar = QPushButton("Continuar")
+
+        # Establecemos el ancho del botón
+        self.botonContinuar.setFixedWidth(90)
+
+        # Le ponemos los estilos.
+        self.botonContinuar.setStyleSheet("background-color: #008B45;"
+                                          "color: #FFFFFF;"
+                                          "padding: 10px;"
+                                          "margin-top: 10px"
+                                          )
+
+        # Hacemos que el botón continuar tenga su metodo:
+        self.botonContinuar.clicked.connect(self.accion_botonContinuar)
+
+        # Agregamos el botón continuar al layout del lado derecho
+        self.ladoDerecho.addRow(self.botonContinuar)
 
         # Agregamos el layout ladoDerecho al layout horizontal
         self.horizontal.addLayout(self.ladoDerecho)
+
+        # Agregamos el layout ladoDerecho al layout horizontal
+        self.horizontal.addLayout(self.ladoDerecho)
+
+
 
         # --------- OJO IMPORTANTE PONER AL FINAL --------------
 
@@ -735,6 +760,16 @@ class Ventana1(QMainWindow):
 
                 # Hacemos que  la ventana de dialogo se vea
                 self.ventanaDialogo.exec_()
+
+    # Metodo del botón continuar
+    def accion_botonContinuar(self):
+        self.hide()
+        self.ventana2 = Ventana2(self)
+        self.ventana2.show()
+
+
+
+
 
 
 if __name__ == '__main__':
