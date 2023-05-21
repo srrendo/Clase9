@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QVBoxLayout, QS
     QApplication, QButtonGroup, QPushButton
 from PyQt5 import QtGui
 from cliente import Cliente
+from ventana3 import Ventana3
 
 
 class Ventana2(QMainWindow):
@@ -210,6 +211,27 @@ class Ventana2(QMainWindow):
         # Establecemos el metodo para que funcionen los botones
         self.botones.idClicked.connect(self.metodo_accionBotones)
 
+        # ---------------- BOTÓN DE FORMA TABULAR ----------------
+
+        # Hacemos el botón para devolvernos a la ventana anterior
+        self.botonFormaTabular = QPushButton("Forma Tabular")
+
+        # Establecemos el ancho del botón
+        self.botonFormaTabular.setFixedWidth(150)
+
+        # Le ponemos los estilos
+        self.botonFormaTabular.setStyleSheet("background-color: #008B45;"
+                                             "color: #FFFFFF;"
+                                             "padding: 10px;"
+                                             "margin-top: 10px"
+                                             )
+
+        # Hacemos que el botón tabular tenga su metodo
+        self.botonFormaTabular.clicked.connect(self.metodo_botonFormaTabular)
+
+        # Metemos el layout vertical en el boton forma tabular
+        self.vertical.addWidget(self.botonFormaTabular)
+
         # -------------BOTÓN VOLVER---------------------------
 
         # Hacemos el botón para volver a la ventana anterior
@@ -221,8 +243,8 @@ class Ventana2(QMainWindow):
         # Le ponemos los estilos
         self.botonVolver.setStyleSheet("background-color: #008B45;"
                                        "color: #FFFFFF;"
-                                       "padding: 10'px;"
-                                       "margin-top: 10px;"
+                                       "padding: 10px;"
+                                       "margin-top: 10px"
                                        )
 
         # Hacemos que el botón volver tenga su metodo
@@ -243,9 +265,11 @@ class Ventana2(QMainWindow):
         self.hide()
         self.ventanaAnterior.show()
 
-
-
-
+    # Metodo para el botón forma tabular
+    def metodo_botonFormaTabular(self):
+        self.hide()
+        self.ventana3 = Ventana3(self)
+        self.ventana3.show()
 
 
 if __name__ == '__main__':
