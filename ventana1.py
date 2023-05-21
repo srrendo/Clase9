@@ -381,6 +381,8 @@ class Ventana1(QMainWindow):
         # Agregamos el layout ladoDerecho al layout horizontal
         self.horizontal.addLayout(self.ladoDerecho)
 
+
+
         # --------- OJO IMPORTANTE PONER AL FINAL --------------
 
         # Indicamos que el Layout principal del fondo es horizontal
